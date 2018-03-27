@@ -3,7 +3,8 @@ import { MenuItem } from "../menu-item/menu-item.model";
 
 export class ShoppingService{
 
-    itens: ShoppingCart[] = []
+    
+   itens: ShoppingCart[] = []
 
     clear(){
        this.itens = []
@@ -12,7 +13,7 @@ export class ShoppingService{
     add(item: MenuItem){
         let foundItem = this.itens.find((mItem) => mItem.menuItem.id === item.id)
         if(foundItem){
-            foundItem.quantity = foundItem.quantity + 1
+            this.increaseQty(foundItem)
         }else{
             this.itens.push(new ShoppingCart(item))
         }
@@ -26,4 +27,13 @@ export class ShoppingService{
          return this.itens.map(item => item.value())
             .reduce((prev, value) => prev + value, 0)
     }
+
+    increaseQty(item: ShoppingCart){
+      item.quantity = item.quantity + 1
+    }
+
+    decreaseQty(item: ShoppingCart){
+        item.quantity = item.quantity - 1
+        if(item.quantity === 0) this.remove(item)
+      }
 }
