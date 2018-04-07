@@ -9,6 +9,8 @@ import { OrderService } from './order-item/order-service';
 })
 export class OrderComponent implements OnInit {
 
+  delivery: number = 8
+
   paymentOptions: RadioOption[] = [
     {label: 'Dinheiro', value:'MON'},
     {label: 'Cartão De Credito', value:'DEB'},
@@ -23,7 +25,11 @@ export class OrderComponent implements OnInit {
   
 }
 
-  cartItems(): ShoppingCart[]{
+itensValue(): number{
+  return this.orderService.itensValue()
+}
+ 
+ cartItems(): ShoppingCart[]{
     return this.orderService.cartItems()
   }
 
