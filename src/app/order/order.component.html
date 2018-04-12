@@ -5,9 +5,6 @@
 <section class="content">
   <section class="invoice">
 
-    {{form.valid }}
-    {{form.value | json}}
-
 
         <form #form="ngForm" novalidate>
           <div class="row">
@@ -39,7 +36,7 @@
               <div class="form-group">
                 <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Complemento</label>
                 <mt-input-contaner label="Numero">
-                  <input type="text" class="form-control" name="optional" ngModel placeholder="Complemento">
+                  <input type="text" class="form-control" name="optionalAdress" ngModel placeholder="Complemento">
                 </mt-input-contaner>
               </div>
 
@@ -90,7 +87,7 @@
 
         <div class="row">
           <div class="col-xs-12">
-           <button  [disabled]="form.invalid || cartItems().lenght ===  0"  class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir Pedido
+           <button (click)="checkData(form.value)"  [disabled]="form.invalid || cartItems().lenght ===  0"  class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir Pedido
             </button>
           </div>
         </div>
