@@ -19,7 +19,7 @@
       "tsconfig": "tsconfig.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "mt",
-      "mobile": false,
+      "mobile": true,
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
